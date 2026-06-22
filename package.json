@@ -1,0 +1,42 @@
+{
+  "name": "imgbb-mcp",
+  "version": "1.0.0",
+  "description": "免费图床 MCP 服务 - 将图片上传到 ImgBB 并获取公网链接",
+  "type": "module",
+  "mcp": {
+    "server": {
+      "command": "python3",
+      "args": ["mcp_server.py"]
+    },
+    "tools": [
+      {
+        "name": "upload_image",
+        "description": "上传图片到 ImgBB 免费图床，支持本地文件路径或网络图片URL",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string",
+              "description": "图片来源：本地文件路径或网络图片URL"
+            }
+          },
+          "required": ["source"]
+        }
+      },
+      {
+        "name": "upload_image_from_url",
+        "description": "从网络 URL 上传图片到 ImgBB 免费图床",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "url": {
+              "type": "string",
+              "description": "网络图片的完整URL地址"
+            }
+          },
+          "required": ["url"]
+        }
+      }
+    ]
+  }
+}
